@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Spell Bug</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="screen" title="no title">
+  </head>
+  <body>
+    <div class="text-center">
+      <h1><b>GDG BBSR<b></h1>
+      <h3>Spell Check</h3>
+    </div>
+    <div class="text-center">
+      <p id="para" ></p>
+    </div>
+      <div class="text-center">
+        <div class="form-group">
+          <input id="user" type="text" name="textbox" value="" style="height:150px;width:550px; font-size:14pt;"/>
+          <div class="text-center">
+            <input type="submit" name="button" value="Submit" onclick="show()">
+          </div>
+        </div>
+      </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+      var textbox = document.getElementById('text');
+      function show()
+      {
+        var first = document.getElementById("user");
+        console.log(first.value);
+        $.getJSON("dictionary.json", function (json) {
+          // document.getElementById("para").innerHTML = json.commonWords;
+        })
+
+        document.getElementById("para").innerHTML = first.value;
+        var sp = first.value.split(" ")
+        console.log(sp);
+        (function () {
+          $.getJSON("dictionary.json", function (json) {
+          for (var i = 0; i < sp.length; i++) {
+            for (var j = 0; j < json.commonWords.length; j++) {
+              console.log(json.commonWords[j]);
+              if(sp[i] == json.commonWords[j]){
+                  console.log(sp[i]);
+              }
+            }
+          }
+          })
+        })();
+      }
+    </script>
+  </body>
+</html>

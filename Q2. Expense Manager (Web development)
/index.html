@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Expense Manager</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container text-center">
+    	<h1>Expense Manager</h1>
+      <div class="navbar navbar-default">
+      </div>
+      <div class="expense-categories">
+        <h2>Expense categories</h2>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Category</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add your category</h4>
+              </div>
+              <div class="modal-body">
+                <form class="expense" action="index.html" method="post">
+                  <input id = "catname" type="text" name="name" value="" placeholder="Category">
+                  <input id = "limit" type="text" name="name" value="" placeholder="Limit">
+                  <button type="submit" onclick="myFunction()" name="button">Submit</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+        <table id="myTable" class="table">
+          <tr>
+            <th>
+              Category
+            </th>
+            <th>
+              Limit
+            </th>
+          </tr>
+          <tr>
+            <td>
+              Food
+            </td>
+            <td>
+              10000
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Travel
+            </td>
+            <td>
+              10000
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Clothes
+            </td>
+            <td>
+              50000
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Bills
+            </td>
+            <td>
+              10000
+            </td>
+          </tr>
+        </table>
+        <h2>Expenses</h2>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Expense</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add your category</h4>
+              </div>
+              <div class="modal-body">
+                <form class="expense" action="index.html" method="post">
+                  <input id = "amount" type="text" name="name" value="" placeholder="Amount">
+                  <input id = "expense-category" type="text" name="name" value="" placeholder="Expense Category">
+                  <input id = "payment-method" type="text" name="name" value="" placeholder="Payment Method">
+                  <input id = "expense-name" type="text" name="name" value="" placeholder="Expense Name">
+                  <button type="submit" name="button">Submit</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+        <table id="expense" class="table">
+          <tr>
+            <th>
+              Amount
+            </th>
+            <th>
+              Expense Category
+            </th>
+            <th>
+              Payment Method
+            </th>
+            <th>
+              Expense Name
+            </th>
+          </tr>
+          <tr>
+            <td>
+              1000
+            </td>
+            <td>
+              Food
+            </td>
+            <td>
+              Paytm
+            </td>
+            <td>
+              Lunch
+            </td>
+          </tr>
+        </table>
+      </div>
+      <script src="./expense.js"></script>
+      <script type="text/javascript">
+      	function myFunction() {
+		    var table = document.getElementById("myTable");
+		    var row = table.insertRow(0);
+		    var cell1 = row.insertCell(0);
+		    var cell2 = row.insertCell(1);
+		    cell1.innerHTML = document.getElementById("catname").innerHTML;
+		    cell2.innerHTML = document.getElementById("limit").innerHTML;
+		}
+      </script>
+  </body>
+</html>
